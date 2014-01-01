@@ -8,4 +8,5 @@ Feel free to [submit a pull request](https://github.com/helpers/banners/issues) 
 
 ## License
 Copyright (c) 2014 Jon Schlinkert, Brian Woodward, contributors.
-Released under the MIT license
+
+Licensed under the [MIT license](./LICENSE-MIT)
