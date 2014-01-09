@@ -10,8 +10,8 @@ module.exports = {
     ' * <%= pkg.name %> v<%= pkg.version %>',
     ' * <%= pkg.homepage %>',
     '',
-    ' * Copyright (c) <%= grunt.template.date("yyyy") %>, Jon Schlinkert, Brian Woodward, contributors',
-    ' * Licensed under the MIT license.',
+    ' * Copyright (c) 2014 %>, <%= pkg.author.name %>, contributors',  //change year as needed
+    ' * Licensed under the <%= pkg.licenses.type %> license.',
     ' */\n\n'
   ].join('\n'),
 
@@ -19,7 +19,7 @@ module.exports = {
   min: [
     '/*! <%= pkg.name %> v<%= pkg.version %>',
     '<%= pkg.homepage %>',
-    '(c) <%= grunt.template.date("yyyy") %> Jon Schlinkert, Brian Woodward, contributors',
-    'MIT License */\n'
+    '(c) 2014 <%= pkg.author.name %>, contributors',  //change year as needed
+    '<%= pkg.licenses.type %> License */\n'
   ].join(' | ')
 };
