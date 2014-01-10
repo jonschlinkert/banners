@@ -21,7 +21,7 @@ exports.bannerBlock = function(opts) {
     ' * <%= pkg.name %> v<%= pkg.version %>',
     ' * <%= pkg.homepage %>',
     ' *',
-    ' * Copyright (c) ' + year + ' ' + opts.author + ', contributors',
+    ' * Copyright (c) ' + opts.year + ' ' + opts.author + ', contributors',
     ' * Licensed under the ' + opts.license + '.',
     ' */\n\n'
   ].join('\n');
@@ -41,7 +41,7 @@ exports.bannerMin = function(opts) {
   var banner = [
     '/*! <%= pkg.name %> v<%= pkg.version %>',
     '<%= pkg.homepage %>',
-    '(c) ' + year + ' ' + opts.author + ', contributors',
+    '(c) ' + opts.year + ' ' + opts.author + ', contributors',
     'Licensed under the ' + opts.license + '. */\n'
   ].join(' | ');
   return banner;
