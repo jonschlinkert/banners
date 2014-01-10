@@ -3,23 +3,44 @@
  * Licensed under the MIT License (MIT).
  */
 
-module.exports = {
-  // Use this banner on JavaScript and CSS files
-  block: [
-    '/*',
+var defaults = {
+  author: '<% if (pkg.author.name){ %><%= pkg.author.name %><% } else if (pkg.author && !pkg.author.name){ %><%= pkg.author %><% } %>',
+  license: '<% if (pkg.licenses){ %><%= _.pluck(pkg.licenses, "type").join(", ") %> license<%= (pkg.licenses.length === 1 ? "" : "s") %><% } else if (pkg.license){ %><%= pkg.license %> license<% } %>'
+};
+
+
+// Use this banner on JavaScript and CSS files
+exports.bannerBlock = function(opts) {
+  opts = opts || {};
+  opts.author = opts.author || defaults.author;
+  opts.license = opts.license || defaults.license;
+  var banner = [
+    '/**',
     ' * <%= pkg.name %> v<%= pkg.version %>',
     ' * <%= pkg.homepage %>',
-    '',
-    ' * Copyright (c) <%= grunt.template.date("yyyy") %>, Jon Schlinkert, Brian Woodward, contributors',
-    ' * Licensed under the MIT license.',
+    ' *',
+    ' * Copyright (c) <%= new Date().getFullYear() %> ' + opts.author + ', contributors',
+    ' * Licensed under the ' + opts.license + '.',
     ' */\n\n'
-  ].join('\n'),
+  ].join('\n');
+  return banner;
+};
+exports.block = exports.bannerBlock();
 
-  // Use this banner on minified JavaScript and CSS files
-  min: [
+
+
+// Use this banner on minified JavaScript and CSS files
+exports.bannerMin = function(opts) {
+  opts = opts || {};
+  opts.author = opts.author || defaults.author;
+  opts.license = opts.license || defaults.license;
+
+  var banner = [
     '/*! <%= pkg.name %> v<%= pkg.version %>',
     '<%= pkg.homepage %>',
-    '(c) <%= grunt.template.date("yyyy") %> Jon Schlinkert, Brian Woodward, contributors',
-    'MIT License */\n'
-  ].join(' | ')
+    '(c) <%= new Date().getFullYear() %> ' + opts.author + ', contributors',
+    'Licensed under the ' + opts.license + '. */\n'
+  ].join(' | ');
+  return banner;
 };
+exports.min  = exports.bannerMin();
