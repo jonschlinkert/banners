@@ -10,7 +10,7 @@ module.exports = {
     ' * <%= pkg.name %> v<%= pkg.version %>',
     ' * <%= pkg.homepage %>',
     '',
-    ' * Copyright (c) 2014 %>, <%= pkg.author.name %>, contributors',  //change year as needed
+    ' * Copyright (c) <%= grunt.template.date("yyyy") %>, <%= pkg.author.name %>, contributors',  //hardcode year as needed
     ' * Licensed under the <%= pkg.licenses.type %> license.',
     ' */\n\n'
   ].join('\n'),
@@ -19,7 +19,7 @@ module.exports = {
   min: [
     '/*! <%= pkg.name %> v<%= pkg.version %>',
     '<%= pkg.homepage %>',
-    '(c) 2014 <%= pkg.author.name %>, contributors',  //change year as needed
+    '(c) <%= grunt.template.date("yyyy") %>, <%= pkg.author.name %>, contributors',  //hardcode year as needed
     '<%= pkg.licenses.type %> License */\n'
   ].join(' | ')
 };
