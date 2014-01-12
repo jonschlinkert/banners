@@ -61,21 +61,21 @@ module.exports = function (grunt) {
 };
 ```
 
+## Default properties
 
-## Usage
+> The included banners will attempt to use the following properties from `package.json`
 
-#### defaults
+* `name`
+* `version`
+* `homepage`
+* `author.name` *or* `author`
+* `licences.type` *or* `licence.type` *or* `license`
 
-Atleast the following fields in `package.json` are used (in precident):
- * name
- * version
- * homepage
- * author.name *or* author
- * licences.type *or* licence.type *or* license
- 
-A copyright year is automatically updated to current.  
+_Also, **unless overridden** the copyright year is automatically calculated as the current year._
 
-#### mixins examples
+## Usage Examples
+
+### mixins examples
 
 Given we have:
 
@@ -95,8 +95,17 @@ If no parameters are passed to the mixin, it will attempt to automatically retri
 banner: '<%= _.bannerBlock() %>'
 // => "Jon Schlinkert"
 ```
+_To override these automatic values, you may pass a config object as a paramter:_
 
-To override these automatic values, you may pass a config object as a paramter:
+#### Override copyright year
+
+```js
+//
+banner: '<%= _.bannerBlock({year: "2013"}) %>'
+// => Copyright (c) 2013 Jon Schlinkert, contributors.
+```
+
+#### Override author
 
 ```js
 // Passed directly to the mixin
