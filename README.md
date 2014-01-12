@@ -66,9 +66,8 @@ module.exports = function (grunt) {
 
 #### defaults
 
-The following fields in `package.json` are used (in precident):
+Atleast the following fields in `package.json` are used (in precident):
  * name
- * description
  * version
  * homepage
  * author.name *or* author
