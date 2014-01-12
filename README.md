@@ -62,9 +62,20 @@ module.exports = function (grunt) {
 ```
 
 
-## Usage examples
+## Usage
 
-#### mixins
+#### defaults
+
+Atleast the following fields in `package.json` are used (in precident):
+ * name
+ * version
+ * homepage
+ * author.name *or* author
+ * licences.type *or* licence.type *or* license
+ 
+A copyright year is automatically updated to current.  
+
+#### mixins examples
 
 Given we have:
 
