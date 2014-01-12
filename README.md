@@ -71,8 +71,8 @@ The following fields in `package.json` are used (in precident):
  * description
  * version
  * homepage
- * author.name or author
- * licences.type or licence.type or license
+ * author.name *or* author
+ * licences.type *or* licence.type *or* license
  
 A copyright year is automatically updated to current.  
 
